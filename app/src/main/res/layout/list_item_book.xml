@@ -38,7 +38,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/collapsedLayout">
+            android:layout_below="@id/collapsedLayout"
+            android:id="@+id/expandedLayout"
+            android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +58,13 @@
                 android:id="@+id/shortDesc"
                 android:layout_below="@id/txtAuthorName"
                 android:text="short desc"/>
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_up"
+                android:layout_below="@id/shortDesc"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/btnUp"/>
         </RelativeLayout>
     </RelativeLayout>
 
