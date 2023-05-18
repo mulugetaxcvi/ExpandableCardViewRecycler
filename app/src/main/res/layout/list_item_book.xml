@@ -9,26 +9,55 @@
     android:layout_margin="5dp">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        
-        <ImageView
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:id="@+id/imgBook"
-            android:src="@drawable/ic_launcher_background"/>
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content">
+<!--  collapsed cardview-->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="book name"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:id="@+id/txtName"
-            android:layout_below="@id/imgBook"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="7dp"/>
-        
+            android:id="@+id/collapsedLayout">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="220dp"
+                android:id="@+id/imgBook"
+                android:src="@drawable/ic_launcher_background"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="book name"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/txtName"
+                android:layout_below="@id/imgBook"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"/>
+
+        </RelativeLayout>
+<!--  expanded cardview        -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/collapsedLayout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtAuthor"
+                android:text="Author"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtAuthorName"
+                android:layout_below="@id/txtAuthor"
+                android:text="Author Name"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shortDesc"
+                android:layout_below="@id/txtAuthorName"
+                android:text="short desc"/>
+        </RelativeLayout>
     </RelativeLayout>
+
 
 </com.google.android.material.card.MaterialCardView>
