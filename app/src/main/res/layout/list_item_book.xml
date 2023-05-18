@@ -56,6 +56,7 @@
                 android:id="@+id/shortDesc"
                 android:layout_below="@id/txtAuthorName"
                 android:text="short desc"/>
+
         </RelativeLayout>
     </RelativeLayout>
 
