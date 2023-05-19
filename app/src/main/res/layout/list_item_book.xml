@@ -21,7 +21,8 @@
                 android:layout_width="200dp"
                 android:layout_height="220dp"
                 android:id="@+id/imgBook"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@drawable/ic_launcher_background"
+                android:layout_centerHorizontal="true"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,9 +31,16 @@
                 android:textSize="16sp"
                 android:id="@+id/txtName"
                 android:layout_below="@id/imgBook"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="7dp"/>
-
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="5dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_down"
+                android:layout_below="@id/imgBook"
+                android:id="@+id/btnDown"
+                android:layout_marginTop="7dp"
+                android:layout_alignParentEnd="true"/>
         </RelativeLayout>
 <!--  expanded cardview        -->
         <RelativeLayout
@@ -49,14 +57,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtAuthorName"
+                android:id="@+id/txtBookAuthorName"
                 android:layout_below="@id/txtAuthor"
                 android:text="Author Name"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/shortDesc"
-                android:layout_below="@id/txtAuthorName"
+                android:layout_below="@id/txtBookAuthorName"
                 android:text="short desc"/>
             <ImageView
                 android:layout_width="wrap_content"

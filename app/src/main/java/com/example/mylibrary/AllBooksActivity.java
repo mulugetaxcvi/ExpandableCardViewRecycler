@@ -25,7 +25,10 @@ public class AllBooksActivity extends AppCompatActivity {
         booksRecView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Book> testBooks = new ArrayList<>();
-        testBooks.add(new Book(1, "book1", "author1", 1000, "short desc", "long desc", "https://m.media-amazon.com/images/I/51Dlnsl5p6L._AC_UF1000,1000_QL80_FMwebp_.jpg"));
+        testBooks.add(new Book(1, "book1", "author1", 1000, "short desc", getResources().getString(R.string.lorem), "https://m.media-amazon.com/images/I/51Dlnsl5p6L._AC_UF1000,1000_QL80_FMwebp_.jpg"));
+        testBooks.add(new Book(1, "book2", "author2", 1000, "short desc", getResources().getString(R.string.lorem), "https://m.media-amazon.com/images/I/51Dlnsl5p6L._AC_UF1000,1000_QL80_FMwebp_.jpg"));
+        testBooks.add(new Book(1, "book3", "author3", 1000, "short desc", getResources().getString(R.string.lorem), "https://m.media-amazon.com/images/I/51Dlnsl5p6L._AC_UF1000,1000_QL80_FMwebp_.jpg"));
+
         adapter.setBooks(testBooks);
     }
 }

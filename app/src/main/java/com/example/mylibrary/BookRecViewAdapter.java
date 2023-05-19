@@ -1,6 +1,7 @@
 package com.example.mylibrary;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
@@ -53,9 +55,23 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, books.get(holder.getAdapterPosition()).getName() + " Selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, BookActivity.class);
+                mContext.startActivity(intent);
             }
         });
+
+        holder.txtAuthorName.setText(books.get(position).getAuthor());
+        holder.shortDesc.setText(books.get(position).getShortDesc());
+
+        if (books.get(position).isExpanded()){
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.expandedLayout.setVisibility(View.VISIBLE);
+            holder.btnDown.setVisibility(View.GONE);
+        } else {
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.expandedLayout.setVisibility(View.GONE);
+            holder.btnDown.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -66,13 +82,39 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private MaterialCardView parent;
-        private ImageView imgBook;
-        private TextView txtName;
+        private ImageView imgBook, btnUp, btnDown;
+        private TextView txtName, txtAuthorName, shortDesc;
+        private RelativeLayout expandedLayout, collapsedLayout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
             imgBook = itemView.findViewById(R.id.imgBook);
             txtName = itemView.findViewById(R.id.txtName);
+
+            txtAuthorName = itemView.findViewById(R.id.txtAuthor);
+            shortDesc = itemView.findViewById(R.id.shortDesc);
+            expandedLayout = itemView.findViewById(R.id.expandedLayout);
+            btnDown = itemView.findViewById(R.id.btnDown);
+            btnUp = itemView.findViewById(R.id.btnUp);
+
+            btnDown.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Book book = books.get(getAdapterPosition());
+                    book.setExpanded(!book.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
+            btnUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Book book = books.get(getAdapterPosition());
+                    book.setExpanded(!book.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
+                }
+            });
+
+
         }
     }
 }
