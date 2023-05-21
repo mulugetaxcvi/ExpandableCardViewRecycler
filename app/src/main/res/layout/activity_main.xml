@@ -8,11 +8,20 @@
 
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="All Books"
         android:layout_centerInParent="true"
+        />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Books"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/btn1"
         />
 
 </RelativeLayout>
